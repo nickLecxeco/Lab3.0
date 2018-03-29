@@ -2,8 +2,8 @@
 $this->headTitle('Sign in');
 
 $form->get('username')->setAttributes([
-    'class'=>'form-control', 
-    'placeholder'=>'Email address',
+    'class'=>'form-control mt-3', 
+    'placeholder'=>'Courriel',
     'required' => true,
     'autofocus' => true
     ])
@@ -12,31 +12,32 @@ $form->get('username')->setAttributes([
     ]);
 
 $form->get('password')->setAttributes([
-    'class'=>'form-control', 
-    'placeholder'=>'Password',
+    'class'=>'form-control mt-3', 
+    'placeholder'=>'Mot de passe',
     'required' => true,
     ])
     ->setLabelAttributes([
         'class' => 'sr-only'
     ]);
+$form->get('submit')->setAttributes([
+    'class' => 'btn btn-lg btn-primary btn-block mt-3'
+])
 ?>
 
-<div class="row">
-    <div class="col-md-offset-4 col-md-3">
-        <form class="form-signin" method="post">
-            <h2 class="form-signin-heading">Please sign in</h2>
-            <?php if ($isLoginError): ?>
-            <div class="alert alert-warning" role="alert">
-                Incorrect login and/or password. 
-            </div>
-            <?php endif; ?>
-            <?= $this->formLabel($form->get('username')); ?>
-            <?= $this->formElement($form->get('username')); ?>
-            <?= $this->formLabel($form->get('password')); ?>
-            <?= $this->formElement($form->get('password')); ?>
-            <?= $this->formElement($form->get('redirect_url')); ?>
-            <?= $this->formElement($form->get('csrf')) ?>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
-    </div>
+<div>
+    <form class="form-signin mx-auto border rounded w-50 p-3 my-4" method="post">
+        <h2 class="form-signin-heading">Connexion</h2>
+        <?php if ($isLoginError): ?>
+        <div class="alert alert-warning" role="alert">
+            Mot de passe ou nom d'utilisateur incorrect
+        </div>
+        <?php endif; ?>
+        <?= $this->formLabel($form->get('username')); ?>
+        <?= $this->formElement($form->get('username')); ?>
+        <?= $this->formLabel($form->get('password')); ?>
+        <?= $this->formElement($form->get('password')); ?>
+        <?= $this->formElement($form->get('redirect_url')); ?>
+        <?= $this->formElement($form->get('csrf')) ?>
+        <?= $this->formElement($form->get('submit')) ?>
+    </form>
 </div>

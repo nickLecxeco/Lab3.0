@@ -13,5 +13,11 @@ class IndexController extends AbstractActionController
     {
         $this->_table = [];
     }
+    public function indexAction() {
+        return new ViewModel();
+    }
+    public function detailAction() {
+        return new ViewModel();
+    }
 }
 ?>

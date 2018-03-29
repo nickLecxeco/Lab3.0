@@ -56,18 +56,12 @@ class Menu extends AbstractHelper
         if (count($this->items)==0)
             return ''; // Do nothing if there are no items.
         
-        $result = '<nav role="navigation">';
-        $result .= '<div class="navbar-header">';
-        $result .= '<button type="button" class="navbar-toggle" data-toggle="collapse"';
-        $result .= 'data-target=".navbar-ex1-collapse">';
-        $result .= '<span class="sr-only">Toggle navigation</span>';
-        $result .= '<span class="icon-bar"></span>';
-        $result .= '<span class="icon-bar"></span>';
-        $result .= '<span class="icon-bar"></span>';
+        $result = '<nav role="navigation" class="navbar navbar-expand-sm navbar-dark bg-dark">';
+        $result .= '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">';
+        $result .= '<span class="navbar-toggler-icon"></span>';
         $result .= '</button>';
-        $result .= '</div>';
         
-        $result .= '<div class="collapse navbar-collapse navbar-ex1-collapse">';        
+        $result .= '<div class="collapse navbar-collapse" id="navbarNav">';        
         $result .= '<ul class="nav navbar-nav">';
         
         // Render items
@@ -77,7 +71,7 @@ class Menu extends AbstractHelper
         }
         
         $result .= '</ul>';
-        $result .= '<ul class="nav navbar-nav navbar-right">';
+        $result .= '<ul class="nav navbar-nav justify-content-end w-100">';
         
         // Render items
         foreach ($this->items as $item) {
@@ -90,7 +84,6 @@ class Menu extends AbstractHelper
         $result .= '</nav>';
         
         return $result;
-        
     }
     
     /**
@@ -103,7 +96,7 @@ class Menu extends AbstractHelper
         $id = isset($item['id']) ? $item['id'] : '';
         $isActive = ($id==$this->activeItemId);
         $label = isset($item['label']) ? $item['label'] : '';
-             
+        echo $this->activeItemId; 
         $result = ''; 
      
         $escapeHtml = $this->getView()->plugin('escapeHtml');
@@ -112,28 +105,26 @@ class Menu extends AbstractHelper
             
             $dropdownItems = $item['dropdown'];
             
-            $result .= '<li class="dropdown ' . ($isActive?'active':'') . '">';
-            $result .= '<a href="#" class="dropdown-toggle" data-toggle="dropdown">';
-            $result .= $escapeHtml($label) . ' <b class="caret"></b>';
+            $result .= '<li class="dropdown nav-item ' . ($isActive?'active':'') . '">';
+            $result .= '<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">';
+            $result .= $escapeHtml($label);
             $result .= '</a>';
            
-            $result .= '<ul class="dropdown-menu">';
+            $result .= '<div class="dropdown-menu bg-dark">';
             foreach ($dropdownItems as $item) {
                 $link = isset($item['link']) ? $item['link'] : '#';
                 $label = isset($item['label']) ? $item['label'] : '';
                 
-                $result .= '<li>';
-                $result .= '<a href="'.$escapeHtml($link).'">'.$escapeHtml($label).'</a>';
-                $result .= '</li>';
+                $result .= '<a class="dropdown-item" href="'.$escapeHtml($link).'">'.$escapeHtml($label).'</a>';
             }
-            $result .= '</ul>';
+            $result .= '</div>';
             $result .= '</li>';
             
-        } else {        
+        } else {
             $link = isset($item['link']) ? $item['link'] : '#';
             
-            $result .= $isActive?'<li class="active">':'<li>';
-            $result .= '<a href="'.$escapeHtml($link).'">'.$escapeHtml($label).'</a>';
+            $result .= $isActive?'<li class="active nav-item">':'<li class="nav-item">';
+            $result .= '<a class="nav-link" href="'.$escapeHtml($link).'">'.$escapeHtml($label).'</a>';
             $result .= '</li>';
         }
     

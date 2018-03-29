@@ -1,33 +1,40 @@
 body {
-    padding-top: 60px;
     padding-bottom: 40px;
 }
-
-.zf-green {
-    color: #68b604;
+.dropdown .nav-item :hover{
+    color:#16181b!important;
 }
-
-.btn-success {
-    background-color: #57a900;
-    background-image: -moz-linear-gradient(top, #70d900, #57a900);
-    background-image: -ms-linear-gradient(top, #70d900, #57a900);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
-    background-image: -webkit-linear-gradient(top, #70d900, #57a900);
-    background-image: -o-linear-gradient(top, #70d900, #57a900);
-    background-image: linear-gradient(top, #70d900, #57a900);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+.navbar-right{
+    float:right;
 }
-
-.btn-success:hover,
-.btn-success:active,
-.btn-success.active,
-.btn-success.disabled,
-.btn-success[disabled] {
-    background-color: #57a900;
+.divProducts{
+    width:20%;
+    min-width:350px;
 }
-
-div.container a.navbar-brand > img {
-    display: inline;
-    margin-right: 4px;
-    margin-top: -2px;
+#divPagination{
+    clear:both;
+}
+.card-title{
+    cursor:pointer;
+    text-decoration:underline;
+}
+#divDescProduit img{
+    width:15%;
+    min-width:160px;
+}
+#divContent{
+    margin:10px;
+}
+#tableAdmin tbody tr:hover{
+    cursor:pointer;
+}
+#tableAdmin thead tr th:last-child{
+    border-top-right-radius:.25rem;
+    min-width:80px;
+}
+#tableAdmin tbody tr td:first-child{
+    width:100px;
+}
+#tableAdmin tbody tr td:first-child img{
+    width:70px
 }

@@ -27,8 +27,7 @@ class AuthAdapter implements AdapterInterface
                 Result::FAILURE_IDENTITY_NOT_FOUND, 
                 null, 
                 ['Invalid credentials.']);        
-        }   
-        
+        }
         $sentPass = hash('sha256', $this->_password . $user->_salt);
 
         if ($user->_password == $sentPass) {

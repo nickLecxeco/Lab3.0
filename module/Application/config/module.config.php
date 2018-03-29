@@ -40,8 +40,7 @@ return [
         ],
         'controllers' => [
             Controller\IndexController::class => [
-                ['actions' => ['index', 'edit'], 'allow' => '*'],
-                ['actions' => ['edit'], 'allow' => '@']
+                ['actions' => ['index','detail'], 'allow' => '*']
             ],
         ]
     ],

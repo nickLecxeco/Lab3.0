@@ -12,8 +12,7 @@ use User\Models\User;
 
 class UserGatewayFactory implements FactoryInterface
 {
-    public function __invoke(ContainerInterface $container, 
-                    $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         $dbAdapter = $container->get(AdapterInterface::class);
         $resultSetPrototype = new ResultSet();

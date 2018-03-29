@@ -45,7 +45,7 @@ class LoginForm extends Form
             'name' => 'password',
             'options' => [
                 'label' => 'Password',
-            ],
+            ]
         ]);
 
         
@@ -71,8 +71,8 @@ class LoginForm extends Form
             'type'  => 'submit',
             'name' => 'submit',
             'attributes' => [                
-                'value' => 'Sign in',
-                'id' => 'submit',
+                'value' => 'Se connecter',
+                'id' => 'submit'
             ],
         ]);
     }

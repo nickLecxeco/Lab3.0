@@ -12,8 +12,7 @@ use User\Services\UserManager;
 class UserManagerFactory implements FactoryInterface
 {
 
-    public function __invoke(ContainerInterface $container, 
-                    $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         $tableGateway = $container->get(UserGateway::class);
         $table = new UserManager($tableGateway);
