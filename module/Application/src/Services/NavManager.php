@@ -38,8 +38,13 @@ class NavManager
         
         $items[] = [
             'id' => 'home',
-            'label' => 'Home',
+            'label' => 'Accueil',
             'link'  => $url('index')
+        ];
+        $items[] = [
+            'id' => 'basket',
+            'label' => 'Panier',
+            'link'  => $url('basket')
         ];
         
         // Display "Login" menu item for not authorized user only. On the other hand,
@@ -47,7 +52,7 @@ class NavManager
         if (!$this->authService->hasIdentity()) {
             $items[] = [
                 'id' => 'login',
-                'label' => 'Sign in',
+                'label' => 'Connexion',
                 'link'  => $url('login')
             ];
         } else {
@@ -57,7 +62,7 @@ class NavManager
                 'dropdown' => [
                     [
                         'id' => 'logout',
-                        'label' => 'Sign out',
+                        'label' => 'Déconnexion',
                         'link' => $url('logout')
                     ],
                 ]

@@ -9,10 +9,9 @@ class IndexController extends AbstractActionController
 {
     private $_table;
 
-    public function __construct(AuctionTable $table)
+    public function __construct()
     {
-        $this->_table = $table;
+        $this->_table = [];
     }
 }
-
 ?>
